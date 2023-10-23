@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AirTravels.ViewModels.ShowReportViewModel>
+
+<div>
+    @foreach(var ticket in Model)
+    {
+        <div>
+            Дата оформления - @ticket.ServiceRegistrationDate  Дата вылета - @ticket.ArrivalDate Номер заказа - @ticket.OrderNumber Пункт отправления - @ticket.DeparturePoint
+            Пункт назначения - @ticket.Destination завершен - @ticket.IsCompleted
+        </div>
+    }
+</div>

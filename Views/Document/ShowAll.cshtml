@@ -1,0 +1,20 @@
+﻿@model IEnumerable<AirTravels.ViewModels.AllDocumentsViewModel>
+
+<ul class="list-group">
+    @foreach (var document in Model)
+    {
+        <div class="container">
+            <label>
+                @document.Id @document.Number @document.DocumentType.Type
+            </label>
+            <div>
+                <form method="post" asp-action="Delete">
+                    <button type="submit" class="btn btn-secondary" name="Id" value="@document.Id">delete</button>
+                </form>
+                <form method="get" asp-action="Edit">
+                    <button type="submit" class="btn btn-secondary" name="Id" value="@document.Id">edit</button>
+                </form>
+            </div>
+        </div>
+    }
+</ul>

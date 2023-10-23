@@ -1,0 +1,27 @@
+﻿@model AirTravels.ViewModels.EditDocumentViewModel
+
+<form method="post" asp-action="Edit">
+    <div class="form-group">
+        <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+        <label for="exampleInputEmail1">текущий номер документа</label>
+        <label for="exampleInputEmail1">@Model.Number</label>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">номер документа</label>
+        <input asp-for="Number" class="form-control" placeholder="Номер документа">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Текущий тип документа</label>
+        <label for="exampleInputEmail1">@Model.Type</label>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">тип документа</label>
+        <select asp-for="TypeId">
+            @foreach (var document in Model.DocumentTypes)
+            {
+                <option value="@document.Id">@document.Type</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AirTravels.ViewModels.TicketViewModel>
+
+<div>
+    <ul class="list-group">
+        @foreach (var ticket in Model)
+        {
+            <div class="container">
+                @if (ticket.Passanger == null)
+                {
+                    <label>
+                        @ticket.Id пункт отправления - @ticket.DeparturePoint.Name пункт назначения - @ticket.Destination.Name номер заказа - @ticket.OrderNumber компания - @ticket.ServiceProvider.Company1
+                        дата отправления - @ticket.DepartureDate дата прибытия - @ticket.ArrivalDate дата регистрации услуг - @ticket.ServiceRegistrationDate Фамилия - отсутствует Имя - отсутствует - отсутствует номер документа - отсутствует тип документа - отсутствует завершен - @ticket.isCompleted
+                    </label>
+                }
+                else if (ticket.Document == null)
+                {
+                    <label>
+                        @ticket.Id пункт отправления - @ticket.DeparturePoint.Name пункт назначения - @ticket.Destination.Name номер заказа - @ticket.OrderNumber компания - @ticket.ServiceProvider.Company1
+                        дата отправления - @ticket.DepartureDate дата прибытия - @ticket.ArrivalDate дата регистрации услуг - @ticket.ServiceRegistrationDate Фамилия - @ticket.Passanger.SecondName Имя - @ticket.Passanger.FirstName отчество - @ticket.Passanger.ThirdName номер документа - отсутствует тип документа - отсутствует завершен - @ticket.isCompleted
+                    </label>
+                    <form method="get" asp-controller="Passanger" asp-action="ShowPassanger">
+                        <button type="submit" class="btn btn-secondary" name="Id" value="@ticket.Passanger.Id">Показать пассажира</button>
+                    </form>
+                }
+                else
+                {
+                    <label>
+                        @ticket.Id пункт отправления - @ticket.DeparturePoint.Name пункт назначения - @ticket.Destination.Name номер заказа - @ticket.OrderNumber компания - @ticket.ServiceProvider.Company1
+                        дата отправления - @ticket.DepartureDate дата прибытия - @ticket.ArrivalDate дата регистрации услуг - @ticket.ServiceRegistrationDate Фамилия - @ticket.Passanger.SecondName Имя - @ticket.Passanger.FirstName отчество - @ticket.Passanger.ThirdName номер документа - @ticket.Document.Number тип документа - @ticket.DocumentType.Type завершен - @ticket.isCompleted
+                    </label>
+                    <form method="get" asp-controller="Passanger" asp-action="ShowPassanger">
+                        <button type="submit" class="btn btn-secondary" name="Id" value="@ticket.Passanger.Id">Показать пассажира</button>
+                    </form>
+                }
+                <div>
+                    <form method="post" asp-action="Delete">
+                        <button type="submit" class="btn btn-secondary" name="Id" value="@ticket.Id">delete</button>
+                    </form>
+                    <form method="get" asp-action="Edit">
+                        <button type="submit" class="btn btn-secondary" name="Id" value="@ticket.Id">edit</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </ul>
+</div>

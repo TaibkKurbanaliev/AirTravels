@@ -1,0 +1,15 @@
+﻿@model AirTravels.ViewModels.ShowPassangerByTicketVM
+
+<div>
+    @if (Model.Document != null)
+    {
+        @Model.Id @Model.SecondName @Model.FirstName @Model.ThirdName @Model.Document.Number @Model.DocumentType
+        <form method="get" asp-controller="Document" asp-action="ShowDocument">
+            <button type="submit" class="btn btn-secondary" name="Id" value="@Model.Document.Id"> показать документ</button>
+        </form>
+    }
+    else
+    {
+        @Model.Id @Model.SecondName @Model.FirstName @Model.ThirdName
+    }
+</div>

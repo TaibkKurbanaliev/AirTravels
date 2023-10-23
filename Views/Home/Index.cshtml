@@ -1,0 +1,26 @@
+﻿@using AirTravels.Models
+@model Ticket
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form method="get" asp-controller="Ticket" asp-action="Show">
+        <button type="submit" class="btn btn-secondary">Показать все билеты</button>
+    </form>
+    <form method="get" asp-controller="Passanger" asp-action="ShowAll">
+        <button type="submit" class="btn btn-secondary">Показать всех пасажиров</button>
+    </form>
+    <form method="get" asp-controller="Document" asp-action="ShowAll">
+        <button type="submit" class="btn btn-secondary">Показать все документы</button>
+    </form>
+    <form method="get" asp-controller="Ticket" asp-action="Create">
+        <button type="submit" class="btn btn-secondary">Добавить билет</button>
+    </form>
+    <form method="get" asp-controller="Passanger" asp-action="Create">
+        <button type="submit" class="btn btn-secondary">Добавить пассажира</button>
+    </form>
+    <form method="get" asp-controller="Ticket" asp-action="Report">
+        <button type="submit" class="btn btn-secondary">Полный отчет за период по пассажиру</button>
+    </form>
+</div>

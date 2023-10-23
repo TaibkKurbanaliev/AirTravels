@@ -1,0 +1,59 @@
+﻿@using AirTravels.Models
+@model AirTravels.ViewModels.CreateTicketViewModel
+
+    
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Пункт отправления</label>
+        <select asp-for="DeparturePointId">
+            @foreach (var city in Model.DeparturePoints)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Пункт назначения</label>
+        <select asp-for="DestinationId">
+            @foreach (var city in Model.Destinations)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input asp-for="OrderNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div>
+        <label for="exampleInputEmail1">Компания</label>
+        <select asp-for="ServiceProviderId">
+            @foreach (var company in Model.ServiceProviders)
+            {
+                <option value="@company.Id">@company.Company1</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата вылета</label>
+        <input asp-for="DepartureDate" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата прилета</label>
+        <input asp-for="ArrivalDate" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата оформления услуги</label>
+        <input asp-for="ServiceRegistrationDate" class="form-control" type="date" />
+    </div>
+    <div>
+        <label for="exampleInputEmail1">Компания</label>
+        <select asp-for="PassangerId">
+            @foreach (var passanger in Model.Passangers)
+            {
+                <option value="@passanger.Id">@passanger.SecondName @passanger.FirstName @passanger.ThirdName</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

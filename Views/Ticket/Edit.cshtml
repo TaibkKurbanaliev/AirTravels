@@ -1,0 +1,57 @@
+﻿@model AirTravels.ViewModels.EditTicketViewModel
+
+<form method="post" asp-action="Edit">
+    <div class="form-group">
+        <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+        <label for="exampleInputEmail1">Пункт отправления</label>
+        <select asp-for="DeparturePointId">
+            @foreach (var city in Model.Cities)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Пункт отправления</label>
+        <select asp-for="DestinationId">
+            @foreach (var city in Model.Cities)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">текущий номер заказа</label>
+        <label for="exampleInputEmail1">@Model.OrderNumber</label>
+        <label for="exampleInputEmail1">номер заказа</label>
+        <input asp-for="OrderNumber" class="form-control" value="@Model.OrderNumber" placeholder="номер заказа">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">компания</label>
+        <select asp-for="ServiceProviderId">
+            @foreach (var company in Model.Companies)
+            {
+                <option value="@company.Id">@company.Company1</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">дата отправления</label>
+        <input asp-for="DepartureDate" value="@Model.DepartureDate.ToString().Substring(6, 4)-@Model.DepartureDate.ToString().Substring(3, 2)-@Model.DepartureDate.ToString().Substring(0, 2)" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">дата прибытия</label>
+        <input asp-for="ArrivalDate" value="@Model.ArrivalDate.ToString().Substring(6, 4)-@Model.ArrivalDate.ToString().Substring(3, 2)-@Model.ArrivalDate.ToString().Substring(0, 2)" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">дата оформления </label>
+        <input asp-for="ServiceRegistrationDate" class="form-control" value="@Model.ServiceRegistrationDate.ToString().Substring(6, 4)-@Model.ServiceRegistrationDate.ToString().Substring(3, 2)-@Model.ServiceRegistrationDate.ToString().Substring(0, 2)" type="date"/>
+    </div>
+    <div>
+        <label class="form-check-label" for="flexCheckDefault">
+            Завершен?
+        </label>
+        <input asp-for="IsCompleted" class="form-check-input" type="checkbox" id="flexCheckDefault">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

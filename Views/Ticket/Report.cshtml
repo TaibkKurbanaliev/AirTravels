@@ -1,0 +1,22 @@
+﻿@model AirTravels.ViewModels.ReportViewModel
+
+<form method="get" asp-action="ShowReport">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Пункт назначения</label>
+        <select asp-for="PassangerId">
+            @foreach (var passanger in Model.Passangers)
+            {
+                <option value="@passanger.Id">@passanger.SecondName @passanger.FirstName @passanger.ThirdName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата вылета</label>
+        <input asp-for="StartDate" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата прилета</label>
+        <input asp-for="EndDate" class="form-control" type="date" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
