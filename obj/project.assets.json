@@ -1082,11 +1082,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kek\\Desktop\\Test\\AirTravels\\AirTravels.csproj",
+      "projectUniqueName": "C:\\Users\\Kek\\Documents\\GitHub\\AirTravels\\AirTravels.csproj",
       "projectName": "AirTravels",
-      "projectPath": "C:\\Users\\Kek\\Desktop\\Test\\AirTravels\\AirTravels.csproj",
+      "projectPath": "C:\\Users\\Kek\\Documents\\GitHub\\AirTravels\\AirTravels.csproj",
       "packagesPath": "C:\\Users\\Kek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kek\\Desktop\\Test\\AirTravels\\obj\\",
+      "outputPath": "C:\\Users\\Kek\\Documents\\GitHub\\AirTravels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

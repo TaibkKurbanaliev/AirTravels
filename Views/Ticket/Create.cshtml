@@ -22,8 +22,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input asp-for="OrderNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <label for="exampleInputEmail1">номер заказа</label>
+        <input asp-for="OrderNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
     </div>
     <div>
         <label for="exampleInputEmail1">Компания</label>
@@ -47,7 +47,7 @@
         <input asp-for="ServiceRegistrationDate" class="form-control" type="date" />
     </div>
     <div>
-        <label for="exampleInputEmail1">Компания</label>
+        <label for="exampleInputEmail1">Пассажир</label>
         <select asp-for="PassangerId">
             @foreach (var passanger in Model.Passangers)
             {
